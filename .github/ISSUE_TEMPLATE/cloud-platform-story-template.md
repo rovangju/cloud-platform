@@ -27,6 +27,7 @@ about: Create new Cloud Platform story
 - [ ] must compile
 - [ ] must pass tests
 - [ ] must address all the steps of user journey
+- [ ] must have documentation added or updated
 
 ## Reference
 
