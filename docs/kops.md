@@ -1,8 +1,11 @@
 ## Create a Kubernetes cluster using Kops
 
 **Steps:**
-1. Copy the [live-0 yaml](https://github.com/ministryofjustice/kubernetes-investigations/blob/master/kops/cloud-platform-live-0.yaml) into a 'new' yaml for your new cluster in the [kops directory](https://github.com/ministryofjustice/kubernetes-investigations/tree/master/kops)
-2. In the 'new' yaml, change the `oidcClientID` and `oidcIssuerURL` to the values generated in Auth0 for the new cluster
+1. Copy the [cloud-platform-live-0.yaml](https://github.com/ministryofjustice/kubernetes-investigations/blob/master/kops/cloud-platform-live-0.yaml) into a new file in the [kops directory](https://github.com/ministryofjustice/kubernetes-investigations/tree/master/kops). Name the file the name of the 'to be' cluster. E.g. `cloud-platform-disaster-recovery-0.yaml`. 
+2. In the `recovery-0.yaml`, change the `oidcClientID` and `oidcIssuerURL` to the values generated in Auth0 for the new cluster
+
+**Note: If launching in another region other than `eu-west-1`, the region should where necessary in `recovery-0.yaml`**
+
 3. Remove the PR approval on the master branch of [`kubernetes-investigations`](https://github.com/ministryofjustice/kubernetes-investigations)
 ```
 https://github.com/ministryofjustice/kubernetes-investigations
