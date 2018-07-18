@@ -1,24 +1,21 @@
-# Cluster creation using Kops
+## Create a Kubernetes cluster using Kops
 
 **Steps:**
-1. Login to [Auth0](https://auth0.com/)
-
-2. In the right hand corner of the dashboard, click on the dropdown and **create a new tenant**
- 
-![new_tenant](images/new_tenant.png)
-
-3. Add a new domain name for API endpoints. 
-![new_domain](images/new_domain.png)
-
-4. Select the Region **Europe**, accept the terms and conditions and click **Create**. 
-
-5. Create a new **"Machine to Machine"** application:
-
+1. Copy the [live-0 yaml](https://github.com/ministryofjustice/kubernetes-investigations/blob/master/kops/cloud-platform-live-0.yaml) into a new file for your new cluster in the [kops directory](https://github.com/ministryofjustice/kubernetes-investigations/tree/master/kops)
+2. In the new yaml, change the `oidcClientID` and `oidcIssuerURL` to the values generated in Auth0 for the new cluster
+3. Remove PR approval on master branch of [`Kubernetes-Investigations`](https://github.com/ministryofjustice/kubernetes-investigations) repository
 ```
-* Application > Create a new application > *Name the app* > Machine to Machine Applications > Create
+https://github.com/ministryofjustice/kubernetes-investigations
 
-* Select Auth0 Management API > Select all Scopes > Authorize
+Settings > Branches > Untick *Require pull request reviews before merging* > Save changes
+```
+4. PR the new yaml and self merge 
+5. Check pipeline output in [CodePipeline](https://eu-west-1.console.aws.amazon.com/codepipeline/home?region=eu-west-1#/view/cluster-creation-pipeline)
+6. Add back PR approval on the master branch
+``` 
+https://github.com/ministryofjustice/kubernetes-investigations
 
+Settings > Branches > Tick *Require pull request reviews before merging* > Save changes
 ```
 
-6. 
+
